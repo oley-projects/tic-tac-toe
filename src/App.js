@@ -1,7 +1,13 @@
+// Pages
+import Home from "./pages/Home";
+// Styles
+import GlobalStyle from "./components/GlobalStyle";
+
 function App() {
   return (
     <div className="App">
-      <h1>Tic Tac Toe</h1>
+      <GlobalStyle />
+      <Home />
     </div>
   );
 }
