@@ -1,14 +1,18 @@
+// Styles
 import styled from "styled-components";
 
-const Modal = () => {
+const Modal = ({ hiddenModal, setHiddenModal }) => {
+  const playerNamesSaveHandler = () => {
+    setHiddenModal(!hiddenModal);
+  }
   return (
     <StyledOverlayModal>
       <StyledModal>
         <label htmlFor="player1">Player 1 Name</label>
-        <input type="text" id="player1" minlength="3" maxlength="20" />
+        <input type="text" id="player1" minLength="3" maxLength="20" />
         <label htmlFor="player2">Player 2 Name</label>
-        <input type="text" id="player2" minlength="3" maxlength="20" />
-        <button>Save</button>
+        <input type="text" id="player2" minLength="3" maxLength="20" />
+        <button onClick={playerNamesSaveHandler}>Start</button>
       </StyledModal>
     </StyledOverlayModal>
   );
@@ -17,13 +21,16 @@ const Modal = () => {
 const StyledOverlayModal = styled.div`
   width: 100%;
   height: 100vh;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
 `;
 const StyledModal = styled.div`
   margin: 10rem auto;
   width: 330px;
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgb(44, 55, 85);
   padding: 3rem;
   border-radius: 1rem;
   label {
