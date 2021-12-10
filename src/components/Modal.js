@@ -1,17 +1,33 @@
 // Styles
 import styled from "styled-components";
 
-const Modal = ({ hiddenModal, setHiddenModal }) => {
+const Modal = (
+  { hiddenModal,
+    setHiddenModal,
+    firstPlayerName,
+    setFirstPlayerName,
+    secondPlayerName,
+    setSecondPlayerName,
+  }
+  ) => {
   const playerNamesSaveHandler = () => {
     setHiddenModal(!hiddenModal);
+  }
+  const playerFirstHandler = (e) => {
+    firstPlayerName = e.target.value;
+    setFirstPlayerName(firstPlayerName);
+  }
+  const playerSecondHandler = (e) => {
+    secondPlayerName = e.target.value;
+    setSecondPlayerName(secondPlayerName);
   }
   return (
     <StyledOverlayModal>
       <StyledModal>
         <label htmlFor="player1">Player 1 Name</label>
-        <input type="text" id="player1" minLength="3" maxLength="20" />
+        <input onChange={playerFirstHandler} value={firstPlayerName} type="text" id="player1" minLength="3" maxLength="20" />
         <label htmlFor="player2">Player 2 Name</label>
-        <input type="text" id="player2" minLength="3" maxLength="20" />
+        <input onChange={playerSecondHandler} value={secondPlayerName} type="text" id="player2" minLength="3" maxLength="20" />
         <button onClick={playerNamesSaveHandler}>Start</button>
       </StyledModal>
     </StyledOverlayModal>
