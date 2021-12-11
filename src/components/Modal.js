@@ -33,9 +33,9 @@ const Modal = (
       <StyledOverlayModal>
         <StyledModal>
           <label htmlFor="player1">Player 1 Name</label>
-          <input onChange={playerFirstHandler} value={firstPlayerName} type="text" id="player1" minLength="3" maxLength="20" />
+          <input onChange={playerFirstHandler} value={firstPlayerName} type="text" id="player1" minLength="3" maxLength="18" />
           <label htmlFor="player2">Player 2 Name</label>
-          <input onChange={playerSecondHandler} value={secondPlayerName} type="text" id="player2" minLength="3" maxLength="20" />
+          <input onChange={playerSecondHandler} value={secondPlayerName} type="text" id="player2" minLength="3" maxLength="18" />
           <button onClick={playerNamesSaveHandler}>Start</button>
           {characterMinCheck && <div>Player's name is too short, should be at least 3 characters</div>}
         </StyledModal>
@@ -61,10 +61,9 @@ const StyledModal = styled.div`
   display: flex;
   flex-direction: column;
   background-color: rgb(44, 55, 85);
-  padding: 3rem;
+  padding: 4rem;
   border-radius: 1rem;
   position: relative;
-  z-index: 10;
   label {
     color: #fff;
     text-align: center;
@@ -72,7 +71,7 @@ const StyledModal = styled.div`
   }
   input {
     margin: 0.3rem 0 1rem;
-    padding: 0.3rem 0.5rem;
+    padding: 0.3rem 1rem;
     font-size: 1.2rem;
     border-radius: 0.2rem;
     border: none;
@@ -83,7 +82,7 @@ const StyledModal = styled.div`
   button {
     cursor: pointer;
     width: 40%;
-    margin: 3.5rem 0 0 auto;
+    margin: 2.2rem 0 0 auto;
     padding: 0.3rem 0;
     font-size: 1.2rem;
     color: #fff;
@@ -100,7 +99,7 @@ const StyledModal = styled.div`
     color: red;
     text-align: center;
     position: absolute;
-    bottom: 30%;
+    bottom: 29%;
     left: 50%;
     transform: translateX(-50%);
   }

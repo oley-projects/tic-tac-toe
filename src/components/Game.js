@@ -2,6 +2,7 @@
 import { useState } from "react";
 // Components
 import Modal from "./Modal";
+import Score from "./Score";
 import GameBoard from "./GameBoard";
 // Styles
 import styled from "styled-components";
@@ -21,6 +22,7 @@ const Game = () => {
           secondPlayerName={secondPlayerName}
           setSecondPlayerName={setSecondPlayerName}
         />}
+      <Score />
       <GameBoard />
     </StyledGame>
   );

@@ -8,9 +8,8 @@ const GameCell = () => {
 };
 
 const Cell = styled.div`
-  width: 100px;
-  height: 100px;
-  border: 2px solid #111;
+  border-right: 0.4rem solid #444;
+  border-bottom: 0.4rem solid #444;
 `;
 
 export default GameCell;
