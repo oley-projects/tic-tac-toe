@@ -18,8 +18,8 @@ const Modal = (
         setHiddenModal(!hiddenModal);
       } else {
         setCharacterMinCheck(true);
+        setTimeout(() => setCharacterMinCheck(false), 2000);
       }
-      setTimeout(() => setCharacterMinCheck(false), 2000);
     }
     const playerFirstHandler = (e) => {
       firstPlayerName = e.target.value;
@@ -37,28 +37,34 @@ const Modal = (
           <label htmlFor="player2">Player 2 Name</label>
           <input onChange={playerSecondHandler} value={secondPlayerName} type="text" id="player2" minLength="3" maxLength="20" />
           <button onClick={playerNamesSaveHandler}>Start</button>
-          {characterMinCheck && <div>Player's name too short, minimum 3 characters</div>}
+          {characterMinCheck && <div>Player's name is too short, should be at least 3 characters</div>}
         </StyledModal>
       </StyledOverlayModal>
     );
 };
 
 const StyledOverlayModal = styled.div`
-  width: 100%;
-  height: 100vh;
-  position: fixed;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: rgba(0, 0, 0, 0.7);
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 const StyledModal = styled.div`
-  margin: 10rem auto;
-  width: 330px;
+  width: 360px;
+  height: 330px;
   display: flex;
   flex-direction: column;
   background-color: rgb(44, 55, 85);
   padding: 3rem;
   border-radius: 1rem;
   position: relative;
+  z-index: 10;
   label {
     color: #fff;
     text-align: center;
@@ -77,7 +83,7 @@ const StyledModal = styled.div`
   button {
     cursor: pointer;
     width: 40%;
-    margin: 0.5rem 0 0 auto;
+    margin: 3.5rem 0 0 auto;
     padding: 0.3rem 0;
     font-size: 1.2rem;
     color: #fff;
@@ -94,7 +100,7 @@ const StyledModal = styled.div`
     color: red;
     text-align: center;
     position: absolute;
-    top: 3%;
+    bottom: 30%;
     left: 50%;
     transform: translateX(-50%);
   }

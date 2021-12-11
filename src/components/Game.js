@@ -1,30 +1,37 @@
 // State
 import { useState } from "react";
 // Components
-import Modal from "../components/Modal";
+import Modal from "./Modal";
+import GameBoard from "./GameBoard";
 // Styles
 import styled from "styled-components";
 
 const Game = () => {
-  const [hiddenModal, setHiddenModal] = useState(false);
+  const [hiddenModal, setHiddenModal] = useState(true);
   const [firstPlayerName, setFirstPlayerName] = useState("");
   const [secondPlayerName, setSecondPlayerName] = useState("");
   return(
     <StyledGame>
-      {!hiddenModal && 
-        <Modal 
-          hiddenModal={hiddenModal} 
-          setHiddenModal={setHiddenModal} 
+      {!hiddenModal &&
+        <Modal
+          hiddenModal={hiddenModal}
+          setHiddenModal={setHiddenModal}
           firstPlayerName={firstPlayerName}
           setFirstPlayerName={setFirstPlayerName}
           secondPlayerName={secondPlayerName}
           setSecondPlayerName={setSecondPlayerName}
         />}
-      <h1>Game</h1>
+      <GameBoard />
     </StyledGame>
   );
 };
 
-const StyledGame = styled.div``;
+const StyledGame = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+`;
 
 export default Game;
